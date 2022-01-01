@@ -1,18 +1,25 @@
-## Getting Started
+## Number Guessing Game
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+The Java code makes use of AWT Events and Java Swing User Interface
 
-## Folder Structure
+## How to run the code
 
-The workspace contains two folders by default, where:
+App.java file contains main method
+Once the file is run, User Interface is shown.
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+The User is expected to guess a number between 0 and 100
+and enter in the text box
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+If Number does not match then appropriate message like 
+Number is greater than X or lesser than X is displayed
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+If the guessed number is correct then 
+Number is correct message is displayed
+
+User can close the window using window close button
+
+
 
 ## Dependency Management
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+No External Dependencies added
