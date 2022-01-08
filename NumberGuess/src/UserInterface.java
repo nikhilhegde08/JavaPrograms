@@ -25,7 +25,7 @@ public class UserInterface  implements ActionListener {
         gl = new GridLayout(0,1);
 
         // App Header
-        frm = new JFrame("---Number Guessing Game---");
+        frm = new JFrame("Simple Number Guessing Game in Java");
         
         // App Label
         lbl = new JLabel("Number is between 0 and 100");
@@ -41,20 +41,24 @@ public class UserInterface  implements ActionListener {
     public void makeGUI(){
         
         // Use Grid layout
-        frm.setLayout(gl);
+        frm.setLayout(null);
 
         // Frame Size
         frm.setSize(700,500);
 
         // Component Size
-        lbl.setSize(200,50);
-        btn.setSize(100,50);
-        fld.setSize(200, 70);
+        // lbl.setSize(200,50);
+        // btn.setSize(100,50);
+        // fld.setSize(200, 70);
 
+        lbl.setBounds(100, 100, 250 , 30);
+        fld.setBounds(100, 150, 150, 30);
+        btn.setBounds(100, 200, 150 , 30);
         
         frm.add(lbl);
         frm.add(fld);
         frm.add(btn);
+        frm.setResizable(false);
 
         btn.addActionListener(this);
         frm.setVisible(true);
@@ -66,13 +70,17 @@ public class UserInterface  implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         
-        // Get the number from input box
-        int number = Integer.parseInt(fld.getText());
+        int number;
 
+        try
+        {
+        // Get the number from input box
+        number = Integer.parseInt(fld.getText());
         // Compare the number with generated number
         Result rs = ng.testNumber(number);
 
         // Shown the output result
+        lbl.setBounds(150, 100, 250 , 30);
         lbl.setText(rs.response);
 
         if(rs.status == true){
@@ -80,12 +88,23 @@ public class UserInterface  implements ActionListener {
             // Remove input box and button on correct input
             frm.remove(btn);
             frm.remove(fld);
+            frm.repaint();
 
             // Display number correct label
             var lbl1 = new JLabel("Now You can close the window!!!");
-            lbl1.setBounds(30, 110, 400, 50);
+            lbl1.setBounds(150, 150, 400, 50);
             frm.add(lbl1);
+        }        
+        
         }
+        catch(Exception exception){
+            lbl.setBounds(150, 100, 400 , 30);
+            lbl.setText("Exception Occurred!! "+ exception.toString());
+            
+        }
+
+
+
         
     }
 }

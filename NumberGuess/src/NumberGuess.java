@@ -28,19 +28,20 @@ public class NumberGuess {
     public NumberGuess(){
         var rm =new  Random();
         number = rm.nextInt(100);
+        System.out.println(number);
     }
 
     // test the number passed
     public Result testNumber(int number){
         
         if (number > this.number){
-            return new Result(false, String.format("No!!! %d is greater than X", number));
+            return new Result(false, String.format("No! %d is greater than X", number));
         }
         else if(number < this.number){
-            return new Result(false, String.format("No!!! %d is lesser than X", number));
+            return new Result(false, String.format("No! %d is lesser than X", number));
         }
         else{
-            return new Result(true, String.format("HOORRAY!!! %d is correct", number));
+            return new Result(true, String.format("Horray!! %d is correct", number));
         }
         
     }
